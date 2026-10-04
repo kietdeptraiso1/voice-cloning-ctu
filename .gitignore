@@ -1,0 +1,25 @@
+# Môi trường ảo Python
+venv/
+env/
+.venv/
+
+# Byte-compiled / Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Thư mục lưu kết quả tạo ra
+outputs/*.wav
+!outputs/.gitkeep
+
+# Thư mục dữ liệu rác/tạm
+data/raw/
+*.tmp
+
+# IDE / Editor Settings
+.vscode/
+.idea/
+
+# OS rác
+.DS_Store
+Thumbs.db
