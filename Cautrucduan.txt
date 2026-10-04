@@ -1,0 +1,27 @@
+voice-cloning-project/
+│
+├── data/                       # [Thành viên 2] Dữ liệu âm thanh & văn bản
+│   ├── raw/                    # File âm thanh gốc chưa xử lý
+│   ├── processed/              # File âm thanh đã lọc nhiễu, cắt ngắn (3-10s)
+│   └── samples/                # Các file giọng nói mẫu chuẩn (.wav) dùng test nhanh
+│
+├── src/                        # Mã nguồn chính của dự án
+│   ├── __init__.py
+│   ├── ai_engine.py            # [Thành viên 1] Core AI: Load model, pipeline xử lý TTS/Cloning
+│   ├── data_loader.py          # [Thành viên 2] Script xử lý file âm thanh & chuẩn hóa text
+│   ├── app.py                  # [Thành viên 3] Giao diện ứng dụng (Streamlit hoặc Gradio)
+│   └── utils.py                # Các hàm tiện ích (ghi file, chuyển đổi định dạng audio)
+│
+├── outputs/                    # Thư mục lưu file âm thanh sau khi mô phỏng thành công
+│   └── .gitkeep
+│
+├── tests/                      # [Thành viên 4] Kiểm thử & Đánh giá
+│   ├── test_model.py           # Script tự động test độ ổn định mô hình
+│   └── evaluate_metrics.py     # Đánh giá thời gian phản hồi, tính chỉ số MOS/Similarity
+│
+├── docs/                       # Tài liệu & Slide
+│   └── slide_presentation.pptx # [Cả nhóm] Slide báo cáo môn học
+│
+├── .gitignore                  # Bỏ qua các file rác, file virtual environment, weights nặng
+├── README.md                   # [Thành viên 4] Hướng dẫn cài đặt và chạy ứng dụng
+└── requirements.txt            # [Thành viên 4] Danh sách thư viện Python cần cài đặt
