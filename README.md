@@ -1,5 +1,5 @@
-# Dự án Mô phỏng Giọng nói Con người (Voice Cloning)
-**Môn học:** Nhập môn Trí tuệ Nhân tạo - ĐH Cần Thơ (CTU)
+# Dự án mô phỏng giọng nói Con người (Voice Cloning)
+**Môn học:** Nhập môn trí tuệ nhân tạo - ĐH Cần Thơ (CTU)
 
 ## Thành viên nhóm
 - Thành viên 1: Trưởng nhóm & AI Engine: Sơn Thái KIệt - B2408916
