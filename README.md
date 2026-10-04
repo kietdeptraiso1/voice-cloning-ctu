@@ -1,4 +1,4 @@
-# Dự án mô phỏng giọng nói Con người (Voice Cloning)
+# Dự án mô phỏng giọng nói con người (Voice Cloning)
 **Môn học:** Nhập môn trí tuệ nhân tạo - ĐH Cần Thơ (CTU)
 
 ## Thành viên nhóm
