@@ -10,7 +10,7 @@
 ## Yêu cầu hệ thống
 
 * **Hệ điều hành:** Windows 10 / 11
-* **Python:** Phiên bản `3.10.x` (khuyến nghị `3.10.11`)
+* **Python:** Phiên bản khuyến nghị `3.10.11`
 * **Git:** Đã cài đặt trên máy
 
 ---
