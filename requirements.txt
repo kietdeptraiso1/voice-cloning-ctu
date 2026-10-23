@@ -1,0 +1,17 @@
+# AI Core & TTS
+edge-tts
+rvc-python
+torch
+torchaudio
+fairseq
+
+# Audio Processing
+soundfile
+librosa
+scipy
+
+# Web UI
+gradio
+
+# Utilities
+requests

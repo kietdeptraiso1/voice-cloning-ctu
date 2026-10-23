@@ -1,27 +1,21 @@
 voice-cloning-project/
-│
-├── data/                       # [Thành viên 2] Dữ liệu âm thanh & văn bản
-│   ├── raw/                    # File âm thanh gốc chưa xử lý
-│   ├── processed/              # File âm thanh đã lọc nhiễu, cắt ngắn (3-10s)
-│   └── samples/                # Các file giọng nói mẫu chuẩn (.wav) dùng test nhanh
-│
-├── src/                        # Mã nguồn chính của dự án
-│   ├── __init__.py
-│   ├── ai_engine.py            # [Thành viên 1] Core AI: Load model, pipeline xử lý TTS/Cloning
-│   ├── data_loader.py          # [Thành viên 2] Script xử lý file âm thanh & chuẩn hóa text
-│   ├── app.py                  # [Thành viên 3] Giao diện ứng dụng (Streamlit hoặc Gradio)
-│   └── utils.py                # Các hàm tiện ích (ghi file, chuyển đổi định dạng audio)
-│
-├── outputs/                    # Thư mục lưu file âm thanh sau khi mô phỏng thành công
-│   └── .gitkeep
-│
-├── tests/                      # [Thành viên 4] Kiểm thử & Đánh giá
-│   ├── test_model.py           # Script tự động test độ ổn định mô hình
-│   └── evaluate_metrics.py     # Đánh giá thời gian phản hồi, tính chỉ số MOS/Similarity
-│
-├── docs/                       # Tài liệu & Slide
-│   └── slide_presentation.pptx # [Cả nhóm] Slide báo cáo môn học
-│
-├── .gitignore                  # Bỏ qua các file rác, file virtual environment, weights nặng
-├── README.md                   # [Thành viên 4] Hướng dẫn cài đặt và chạy ứng dụng
-└── requirements.txt            # [Thành viên 4] Danh sách thư viện Python cần cài đặt
+├── data/                                # [Thủ công] Quản lý dữ liệu đầu vào
+│   └── samples/                         # [Thủ công] Lưu trữ các file giọng mẫu
+│       └── sample.wav                   # [Thủ công] [Thành viên 2] File âm thanh giọng mẫu (.wav, 3-10s)
+├── outputs/                             # [Tự động] Chứa các file âm thanh kết quả được tạo ra
+│   └── test_rvc_vi.mp3                  # [Tự động] File MP3 kết quả sau khi clone giọng thành công
+├── src/                                 # [Thủ công] Thư mục chứa toàn bộ mã nguồn chính
+│   ├── __init__.py                      # [Thủ công] File đánh dấu thư mục Python package
+│   ├── ai_engine.py                     # [Thủ công] [Thành viên 1] Code lõi AI (Edge-TTS + RVC Inference)
+│   ├── app.py                           # [Thủ công] [Thành viên 3] Giao diện Web App (Gradio/Streamlit)
+│   └── audio_processor.py               # [Thủ công] [Thành viên 4] Tiền xử lý âm thanh & lọc nhiễu đầu vào
+├── tests/                               # [Thủ công] Thư mục chứa các script kiểm thử
+│   └── test_engine.py                   # [Thủ công] [Thành viên 4] Script kiểm thử tự động toàn bộ luồng
+├── venv/                                # [Tự động] Môi trường ảo chứa các thư viện Python đã cài đặt
+├── weights/                             # [Thủ công] [Thành viên 2] Thư mục chứa mô hình giọng nói RVC đã train
+│   ├── giong_mau.index                  # [Thủ công] [Thành viên 2] File chỉ mục tính năng trích xuất giọng nói
+│   └── giong_mau.pth                    # [Thủ công] [Thành viên 2] File trọng số mô hình RVC
+├── .gitignore                           # [Thủ công] [Thành viên 1] Khai báo các file/folder không push lên Git
+├── Cautrucduan.txt                      # [Thủ công] File ghi chú chi tiết cấu trúc dự án
+├── README.md                            # [Thủ công] [Thành viên 1] Báo cáo dự án & tài liệu hướng dẫn cài đặt
+└── requirements.txt                     # [Thủ công] [Thành viên 1] Danh sách các thư viện cần thiết của dự án

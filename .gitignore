@@ -1,25 +1,35 @@
-# Môi trường ảo Python
+# Python Virtual Environment (Môi trường ảo)
 venv/
 env/
+ENV/
 .venv/
 
-# Byte-compiled / Python cache
+# Python Cache & Bytecode
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
 
-# Thư mục lưu kết quả tạo ra
+# Tệp trọng số mô hình kích thước lớn (Model Weights & Indexes)
+# Ngăn push file nặng >100MB lên Git
+weights/*.pth
+weights/*.index
+*.pth
+*.index
+
+# Audio Outputs & Temp Files (Dữ liệu tạm và kết quả xuất ra)
 outputs/*.wav
-!outputs/.gitkeep
+outputs/*.mp3
+outputs/*.flac
+data/samples/*
+!data/samples/.gitkeep
 
-# Thư mục dữ liệu rác/tạm
-data/raw/
-*.tmp
-
-# IDE / Editor Settings
+# IDE & Editor Configs (Cấu hình riêng của máy cá nhân)
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# OS rác
+# OS System Files
 .DS_Store
 Thumbs.db
