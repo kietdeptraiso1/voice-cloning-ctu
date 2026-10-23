@@ -7,7 +7,7 @@
 - Thành viên 3: Lập trình Giao diện (UI): Trần Trung Kiên - B2408915
 - Thành viên 4: Kiểm thử & Đóng gói: Phan Ngọc Thế Hy - B2408909
 
-## 📋 Yêu cầu hệ thống
+## Yêu cầu hệ thống
 
 * **Hệ điều hành:** Windows 10 / 11
 * **Python:** Phiên bản `3.10.x` (khuyến nghị `3.10.11`)
@@ -15,7 +15,7 @@
 
 ---
 
-## 🚀 Hướng dẫn Cài đặt & Chạy cho Thành viên
+## Hướng dẫn Cài đặt & Chạy cho Thành viên
 
 ```powershell
 # 1. Clone dự án về máy
