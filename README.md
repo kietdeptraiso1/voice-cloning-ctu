@@ -15,7 +15,7 @@
 
 ---
 
-## Hướng dẫn Cài đặt & Chạy cho Thành viên
+## Hướng dẫn cài đặt & chạy cho thành viên
 
 ```powershell
 # 1. Clone dự án về máy
