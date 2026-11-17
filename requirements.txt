@@ -5,13 +5,19 @@ torch
 torchaudio
 fairseq
 
-# Audio Processing
+# Audio Processing & Noise Reduction (Thành viên 4)
 soundfile
 librosa
 scipy
+noisereduce
+numpy
 
-# Web UI
+# Web UI (Thành viên 3)
 gradio
+
+# Automated Testing (Thành viên 4)
+pytest
+pytest-timeout
 
 # Utilities
 requests

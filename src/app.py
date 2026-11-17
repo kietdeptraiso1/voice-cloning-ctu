@@ -1,7 +1,10 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 import gradio as gr
 from ai_engine import RVC_AVAILABLE, VoiceCloner
 import time
-from pathlib import Path
 from uuid import uuid4
 
 cloner = VoiceCloner()
