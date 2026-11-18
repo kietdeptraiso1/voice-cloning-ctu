@@ -456,14 +456,18 @@ class TestSystemDependencies(unittest.TestCase):
     """
 
     def test_weights_pth_exists(self) -> None:
-        path = PROJECT_ROOT / "weights" / "giong_mau.pth"
-        self.assertTrue(path.is_file(), f"Thiếu file model: {path}")
-        logger.info("[3.1] weights/giong_mau.pth OK (%.1f MB)", path.stat().st_size / 1e6)
+        models_dir = PROJECT_ROOT / "models"
+        pth_files = list(models_dir.glob("*.pth"))
+        if not pth_files:
+            self.skipTest("Chưa đặt file trọng số .pth vào thư mục models/.")
+        logger.info("[3.1] RVC .pth OK: %s (%.1f MB)", pth_files[0].name, pth_files[0].stat().st_size / 1e6)
 
     def test_weights_index_exists(self) -> None:
-        path = PROJECT_ROOT / "weights" / "giong_mau.index"
-        self.assertTrue(path.is_file(), f"Thiếu file index: {path}")
-        logger.info("[3.2] weights/giong_mau.index OK (%.1f MB)", path.stat().st_size / 1e6)
+        models_dir = PROJECT_ROOT / "models"
+        index_files = list(models_dir.glob("*.index"))
+        if not index_files:
+            self.skipTest("Chưa đặt file .index vào thư mục models/.")
+        logger.info("[3.2] RVC .index OK: %s (%.1f MB)", index_files[0].name, index_files[0].stat().st_size / 1e6)
 
     def test_numpy_version(self) -> None:
         self.assertIsNotNone(np.__version__)

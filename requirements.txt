@@ -1,9 +1,8 @@
-# AI Core & TTS
-edge-tts
-rvc-python
+# AI Core & Zero-Shot TTS
+f5-tts
+huggingface-hub
 torch
 torchaudio
-fairseq
 
 # Audio Processing & Noise Reduction (Thành viên 4)
 soundfile

@@ -6,11 +6,11 @@
 ## Thành viên nhóm & Phân công nhiệm vụ
 
 - **Thành viên 1:** **Sơn Thái Kiệt** - B2408916  
-  *Vai trò:* Trưởng nhóm & AI Engine (`src/ai_engine.py` - Tích hợp Edge-TTS, RVC Inference, trích xuất đặc trưng RMVPE).
+  *Vai trò:* Trưởng nhóm & AI Engine (`src/ai_engine.py` - Tích hợp mô hình Zero-Shot F5-TTS tiếng Việt, quản lý quy trình lưu và tổng hợp giọng mẫu).
 - **Thành viên 2:** **Nguyễn Quốc Vinh** - B2408938  
-  *Vai trò:* Xử lý Dữ liệu & Huấn luyện mô hình (Thu thập dataset mẫu giọng, train RVC v2, xuất trọng số `weights/`).
+  *Vai trò:* Xử lý Dữ liệu & Tối ưu mô hình (Chuẩn hóa dữ liệu giọng mẫu đầu vào, tinh chỉnh tham số suy luận F5-TTS tối ưu tốc độ trên CPU/GPU).
 - **Thành viên 3:** **Trần Trung Kiên** - B2408915  
-  *Vai trò:* Lập trình Giao diện Web UI (`src/app.py` - Xây dựng giao diện tương tác Text-to-Speech & Voice-to-Voice trên Gradio).
+  *Vai trò:* Lập trình Giao diện Web UI (`src/app.py` - Xây dựng giao diện tương tác Text-to-Speech, thu âm giọng mẫu, xác nhận ghi đè và tự động đồng bộ danh sách giọng trên Gradio).
 - **Thành viên 4:** **Phan Ngọc Thế Hy** - B2408909  
   *Vai trò:* Tiền xử lý âm thanh & Kiểm thử hệ thống (`src/audio_processor.py` - Lọc nhiễu, chuẩn hóa âm thanh tiếng Việt; `tests/test_engine.py` - Test suite tự động hóa toàn luồng).
 
@@ -20,7 +20,7 @@
 
 * **Hệ điều hành:** Windows 10 / 11 (64-bit)
 * **Python:** Phiên bản khuyến nghị `3.10.11`
-* **GPU (Khuyến nghị):** NVIDIA GPU với VRAM ≥ 4GB (Hỗ trợ CUDA 12.1) để đạt tốc độ suy luận thời gian thực; hệ thống tự động fallback về CPU nếu không có GPU.
+* **Phần cứng:** Hỗ trợ chạy trên cả **CPU** (đã tối ưu `nfe_step=16` và giới hạn mẫu 6 giây) lẫn **NVIDIA GPU** (CUDA 12.1 để tăng tốc suy luận).
 * **Git:** Đã cài đặt trên máy.
 
 ---
@@ -29,35 +29,18 @@
 
 ```text
 voice-cloning-ctu/
-├── data/                                # Quản lý dữ liệu đầu vào
-│   └── samples/                         # Lưu trữ file giọng mẫu thử nghiệm
-│       └── sample.wav                   # File âm thanh giọng mẫu (.wav, 3-10s)
-├── logs/                                # Nhật ký vận hành hệ thống & web app
-│   └── app_startup.log                  # Log khởi động ứng dụng Web Gradio
-├── models/                              # Lưu trữ checkpoint / model gốc
-│   ├── sample.wav                       # Mẫu giọng nói đối chứng
-│   ├── giong_mau._200e_6200s.pth        # Checkpoint huấn luyện 200 epochs / 6200 steps
-│   └── giong_mau..index                 # Index feature gốc
-├── outputs/                             # Chứa file âm thanh kết quả được sinh ra
-│   ├── test_rvc_vi.mp3                  # File MP3 kết quả sau khi clone giọng thành công
-│   └── test_rvc_vi.wav                  # File WAV kết quả kiểm thử chất lượng cao
-├── src/                                 # Thư mục mã nguồn chính của dự án
-│   ├── __init__.py                      # Package marker
-│   ├── ai_engine.py                     # [Thành viên 1] Core AI Engine (Edge-TTS + RVC Inference)
-│   ├── app.py                           # [Thành viên 3] Giao diện Web tương tác (Gradio)
-│   └── audio_processor.py               # [Thành viên 4] Tiền xử lý âm thanh & lọc nhiễu chuẩn Applio/RVC
-├── tests/                               # Thư mục kiểm thử tự động
-│   └── test_engine.py                   # [Thành viên 4] Test Suite tự động toàn luồng (Unit & E2E Tests)
-├── weights/                             # Thư mục chứa trọng số mô hình RVC đã tinh chỉnh
-│   ├── giong_mau.pth                    # Trọng số mô hình RVC v2 (55.2 MB)
-│   └── giong_mau.index                  # Chỉ mục Faiss trích xuất tính năng giọng (85.8 MB)
-├── .gitignore                           # Danh sách loại trừ file nhị phân / cache khi commit Git
-├── Cautrucduan.txt                      # Bảng mô tả cấu trúc phân công chi tiết
-├── README.md                            # Tài liệu hướng dẫn cài đặt & vận hành dự án
-└── requirements.txt                     # Danh sách các thư viện phụ thuộc của dự án
-```
-
----
+├── outputs/                      # Chứa file âm thanh kết quả được sinh ra
+├── saved_voices/                 # Lưu trữ giọng mẫu cá nhân (.wav) & văn bản tham chiếu (.txt)
+├── src/                          # Thư mục mã nguồn chính của dự án
+│   ├── __init__.py               # Package marker
+│   ├── ai_engine.py              # [Thành viên 1] Core AI Engine (Zero-Shot F5-TTS Vietnamese)
+│   ├── app.py                    # [Thành viên 3] Giao diện Web tương tác (Gradio)
+│   └── audio_processor.py        # [Thành viên 4] Tiền xử lý âm thanh & lọc nhiễu chuẩn ngữ âm tiếng Việt
+├── tests/                        # Thư mục kiểm thử tự động
+│   └── test_engine.py            # [Thành viên 4] Test Suite toàn luồng (Unit & E2E Tests)
+├── .gitignore                    # Danh sách loại trừ file nhị phân / cache khi commit Git
+├── README.md                     # Tài liệu hướng dẫn cài đặt & vận hành dự án
+└── requirements.txt              # Danh sách các thư viện phụ thuộc của dự án
 
 ## Hướng dẫn cài đặt & Chạy hệ thống
 
@@ -92,19 +75,14 @@ pip install -r requirements.txt
 > pip install https://huggingface.co/Jmica/rvc/resolve/01b388e059df1218a5a7b48b91305b2e06fed030/fairseq-0.12.2-cp310-cp310-win_amd64.whl
 > ```
 
-### 3. Thiết lập Trọng số mô hình (Weights)
-Đảm bảo đã đặt 2 file trọng số vào thư mục `weights/`:
-- `weights/giong_mau.pth` (Checkpoint RVC)
-- `weights/giong_mau.index` (Feature Index FAISS)
-
-### 4. Kiểm thử lõi suy luận AI Engine (Thành viên 1 & 4)
+### 3. Kiểm thử lõi suy luận AI Engine (Thành viên 1 & 4)
 Chạy kiểm thử suy luận từ dòng lệnh để sinh file âm thanh mẫu:
 ```powershell
 python src/ai_engine.py
 # Âm thanh thành phẩm được xuất tại: outputs/test_rvc_vi.mp3
 ```
 
-### 5. Khởi chạy Giao diện Web UI Gradio (Thành viên 3)
+### 4. Khởi chạy Giao diện Web UI Gradio (Thành viên 3)
 ```powershell
 python src/app.py
 ```

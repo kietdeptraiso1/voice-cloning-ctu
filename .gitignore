@@ -10,19 +10,13 @@ __pycache__/
 *$py.class
 .pytest_cache/
 
-# Tệp trọng số mô hình kích thước lớn (Model Weights & Indexes)
-# Ngăn push file nặng >100MB lên Git
-weights/*.pth
-weights/*.index
-*.pth
-*.index
-
-# Audio Outputs & Temp Files (Dữ liệu tạm và kết quả xuất ra)
+# Audio Outputs, Saved Voices & Temp Files (Dữ liệu tạm và kết quả xuất ra)
 outputs/*.wav
 outputs/*.mp3
 outputs/*.flac
-data/samples/*
-!data/samples/.gitkeep
+saved_voices/*.wav
+saved_voices/*.txt
+!saved_voices/.gitkeep
 
 # IDE & Editor Configs (Cấu hình riêng của máy cá nhân)
 .vscode/
