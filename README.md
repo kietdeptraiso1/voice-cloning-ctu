@@ -12,7 +12,7 @@
 - **Thành viên 3:** **Trần Trung Kiên** - B2408915  
   *Vai trò:* Lập trình Giao diện Web UI (`src/app.py` - Xây dựng giao diện tương tác Text-to-Speech, thu âm giọng mẫu, xác nhận ghi đè và tự động đồng bộ danh sách giọng trên Gradio).
 - **Thành viên 4:** **Phan Ngọc Thế Hy** - B2408909  
-  *Vai trò:* Tiền xử lý âm thanh & Kiểm thử hệ thống (`src/audio_processor.py` - Lọc nhiễu, chuẩn hóa âm thanh tiếng Việt; `tests/test_engine.py` - Test suite tự động hóa toàn luồng).
+  *Vai trò:* Tiền xử lý âm thanh & Kiểm thử hệ thống & Làm sildes (`src/audio_processor.py` - Lọc nhiễu, chuẩn hóa âm thanh tiếng Việt; `tests/test_engine.py` - Test suite tự động hóa toàn luồng).
 
 ---
 
