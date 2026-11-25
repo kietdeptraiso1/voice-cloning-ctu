@@ -1,6 +1,6 @@
 # Dự án mô phỏng giọng nói con người (Voice Cloning)
 **Môn học:** Nhập môn trí tuệ nhân tạo - ĐH Cần Thơ (CTU)
-* **Link sildes:**https://drive.google.com/file/d/1OptzNKGivkE1aRJxNUnE2JKgpk57fqyN/view?usp=sharing
+* **Link sildes:** https://drive.google.com/file/d/1OptzNKGivkE1aRJxNUnE2JKgpk57fqyN/view?usp=sharing
 ---
 
 ## Thành viên nhóm & Phân công nhiệm vụ
@@ -12,7 +12,7 @@
 - **Thành viên 3:** **Trần Trung Kiên** - B2408915  
   *Vai trò:* Lập trình Giao diện Web UI (`src/app.py` - Xây dựng giao diện tương tác Text-to-Speech, thu âm giọng mẫu, xác nhận ghi đè và tự động đồng bộ danh sách giọng trên Gradio).
 - **Thành viên 4:** **Phan Ngọc Thế Hy** - B2408909  
-  *Vai trò:* Tiền xử lý âm thanh & Kiểm thử hệ thống & Làm sildes (`src/audio_processor.py` - Lọc nhiễu, chuẩn hóa âm thanh tiếng Việt; `tests/test_engine.py` - Test suite tự động hóa toàn luồng).
+ *Vai trò:* Tiền xử lý âm thanh & Kiểm thử hệ thống & Làm sildes (`src/audio_processor.py` - Lọc nhiễu, chuẩn hóa âm thanh tiếng Việt; `tests/test_engine.py` - Test suite tự động hóa toàn luồng).
 
 ---
 
