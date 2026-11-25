@@ -1,6 +1,6 @@
 # Dự án mô phỏng giọng nói con người (Voice Cloning)
 **Môn học:** Nhập môn trí tuệ nhân tạo - ĐH Cần Thơ (CTU)
-
+**Link sildes:** https://docs.google.com/presentation/d/13SY4Npz3vd9-u4oSlpFyFUgVrBYckmCQ/edit?usp=sharing&ouid=116062998127277313976&rtpof=true&sd=true
 ---
 
 ## Thành viên nhóm & Phân công nhiệm vụ
