@@ -75,14 +75,7 @@ pip install -r requirements.txt
 > pip install https://huggingface.co/Jmica/rvc/resolve/01b388e059df1218a5a7b48b91305b2e06fed030/fairseq-0.12.2-cp310-cp310-win_amd64.whl
 > ```
 
-### 3. Kiểm thử lõi suy luận AI Engine (Thành viên 1 & 4)
-Chạy kiểm thử suy luận từ dòng lệnh để sinh file âm thanh mẫu:
-```powershell
-python src/ai_engine.py
-# Âm thanh thành phẩm được xuất tại: outputs/test_rvc_vi.mp3
-```
-
-### 4. Khởi chạy Giao diện Web UI Gradio (Thành viên 3)
+### 3. Khởi chạy Giao diện Web UI Gradio (Thành viên 3)
 ```powershell
 python src/app.py
 ```
